@@ -9,7 +9,7 @@ spring:
       enabled: true
 
   #MySQL 설정
-  datasource:
-    url: jdbc:mysql://mariadbportfolio.cua32mtg2la4.ap-northeast-2.rds.amazonaws.com:3306/portfolio?allowPublicKeyRetrieval=true&useSSL=false
-    username: admin
-    password: rootroot
+  # datasource:
+  #   url: jdbc:mysql://mariadbportfolio.cua32mtg2la4.ap-northeast-2.rds.amazonaws.com:3306/portfolio?allowPublicKeyRetrieval=true&useSSL=false
+  #   username: admin
+  #   password: rootroot
