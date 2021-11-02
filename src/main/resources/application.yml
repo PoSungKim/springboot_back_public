@@ -2,13 +2,13 @@
 server:
   port: 8080
 
-#H2 (testdb, sa) jdbcTemplate과 함께 쓰면 유용!
 spring:
+  #H2 (testdb, sa) jdbcTemplate과 함께 쓰면 유용!
   h2:
     console:
       enabled: true
-    #MySQL 설정
 
+  #MySQL 설정
   datasource:
     url: jdbc:mysql://mariadbportfolio.cua32mtg2la4.ap-northeast-2.rds.amazonaws.com:3306/portfolio?allowPublicKeyRetrieval=true&useSSL=false
     username: admin
