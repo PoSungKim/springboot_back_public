@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.*;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = {"http://localhost:80", "https://posungkim.github.io/chatbot"}, maxAge = 3600)
 @RestController
 @RequestMapping("/hello")
 public class HelloController {
     
-    @GetMapping("")
+    @GetMapping("/")
     public @ResponseBody HashMap<String, Object>  hello() {
         HashMap<String, Object> item = new HashMap<String, Object>();
         item.put("data", "안녕하세요! 반갑습니다! ");
