@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.*;
 
-@CrossOrigin(origins = {"http://localhost:81", "https://posungkim.github.io/chatbot"}, maxAge = 3600)
+@CrossOrigin(origins = {"http://localhost:81", "https://posungkim.github.io"}, maxAge = 3600)
 @RestController
 @RequestMapping("/hello")
 public class HelloController {

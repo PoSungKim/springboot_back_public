@@ -17,18 +17,4 @@
 //     //             .allowedMethods("GET", "POST")
 //     //             .maxAge(3000);
 //     // }
-//     @Bean
-//     public CorsConfigurationSource corsConfigurationSource() {
-//         CorsConfiguration configuration = new CorsConfiguration();
-
-//         configuration.addAllowedOrigin("http://localhost:81");
-//         configuration.addAllowedOrigin("https://posungkim.github.io/chatbot");
-//         configuration.addAllowedHeader("*");
-//         configuration.addAllowedMethod("*");
-//         configuration.setAllowCredentials(true);
-
-//         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-//         source.registerCorsConfiguration("/**", configuration);
-//         return source;
-//     }
 // }
