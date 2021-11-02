@@ -1,6 +1,6 @@
 #Configuration
 server:
-  port: 8080
+  port: 8000
 
 spring:
   #H2 (testdb, sa) jdbcTemplate과 함께 쓰면 유용!
