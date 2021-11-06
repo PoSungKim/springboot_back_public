@@ -11,7 +11,7 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/hello")
-// @CrossOrigin(origins = {"http://localhost:81", "https://posungkim.github.io"}, maxAge = 3600)
+@CrossOrigin(origins = {"http://localhost:81", "https://posungkim.github.io"}, allowedHeaders = "*", maxAge = 3600)
 public class HelloController {
     
     @GetMapping("/")
