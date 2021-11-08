@@ -13,6 +13,6 @@ public class ChatBot {
     int userNum;
 
     public String sayHello() {
-        return String.format("안녕하세요 %d번 손님! 환영합니다!", ++userNum);
+        return String.format("안녕하세요 %d번 손님! 환영합니다 🍀", ++userNum);
     }
 }

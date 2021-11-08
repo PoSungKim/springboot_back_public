@@ -32,6 +32,10 @@ public class ChatBotController {
     @MessageMapping("/chatbot.sendMessage")
     @SendTo("/chatroom/public")
     public HashMap<String, String> sendMessage(HashMap<String, String> Message) {
+        if (Message.get("userName").equals("")) {
+            Message.put("userName", "SOL");
+            Message.put("content", "다시 작성해주세요~!✨");
+        }
         System.out.println("sendMessage" + Message);
         return Message;
     }
