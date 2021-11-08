@@ -20,16 +20,17 @@ public class ChatBotController {
         this.ChatBot = ChatBot;
     }
 
-    @MessageMapping("/chatbot.newUser")
-    @SendTo("/topic/public")
+    @MessageMapping("/chatbot.join")
+    @SendTo("/chatroom/public")
     public HashMap<String, String> addNewUser(HashMap<String, String> Message) {
-        Message.put("message", ChatBot.sayHello());
-        System.out.format("addNewUser 손님 %d\n", ChatBot.getUserNum());
+        Message.put("content", ChatBot.sayHello());
+        Message.put("userName", String.format("손님%d\n", ChatBot.getUserNum()));
+        System.out.println(Message);
         return Message;
     }
 
     @MessageMapping("/chatbot.sendMessage")
-    @SendTo("/topic/public")
+    @SendTo("/chatroom/public")
     public HashMap<String, String> sendMessage(HashMap<String, String> Message) {
         System.out.println("sendMessage" + Message);
         return Message;

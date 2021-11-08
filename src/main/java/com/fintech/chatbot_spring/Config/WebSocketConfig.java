@@ -19,7 +19,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
         registry.setApplicationDestinationPrefixes("/");        // /으로 시작하는 요청은 ChatBotController를 통한다
-        registry.enableSimpleBroker("/topic","/queue");         // in-memory broker
+        registry.enableSimpleBroker("/chatroom","/queue");         // in-memory broker
         
     }
 }
