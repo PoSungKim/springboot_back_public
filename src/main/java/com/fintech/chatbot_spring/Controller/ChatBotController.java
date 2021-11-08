@@ -24,8 +24,8 @@ public class ChatBotController {
     @SendTo("/chatroom/public")
     public HashMap<String, String> addNewUser(HashMap<String, String> Message) {
         Message.put("content", ChatBot.sayHello());
-        Message.put("userName", String.format("손님%d\n", ChatBot.getUserNum()));
-        System.out.println(Message);
+        Message.put("userName", String.format("손님%d", ChatBot.getUserNum()));
+        System.out.format("%s\n", Message);
         return Message;
     }
 
