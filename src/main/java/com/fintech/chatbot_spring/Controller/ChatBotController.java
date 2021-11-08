@@ -13,14 +13,18 @@ import java.util.HashMap;
 @Controller
 public class ChatBotController {
     
-    @Autowired
-    private ChatBot ChatBot;
+    private final ChatBot ChatBot;
+    
+    @Autowired 
+    public ChatBotController(ChatBot ChatBot) {
+        this.ChatBot = ChatBot;
+    }
 
     @MessageMapping("/chatbot.newUser")
     @SendTo("/topic/public")
     public HashMap<String, String> addNewUser(HashMap<String, String> Message) {
         Message.put("message", ChatBot.sayHello());
-        System.out.format("addNewUser 손님 %d", ChatBot.getUserNum());
+        System.out.format("addNewUser 손님 %d\n", ChatBot.getUserNum());
         return Message;
     }
 
