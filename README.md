@@ -1,5 +1,5 @@
-# Heroku (https://chatbot-spring.herokuapp.com)
-> S
+# Heroku
+> https://chatbot-spring.herokuapp.com/
 * G
 
 <hr>
