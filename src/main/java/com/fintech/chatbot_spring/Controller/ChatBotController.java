@@ -2,15 +2,13 @@ package com.fintech.chatbot_spring.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import com.fintech.chatbot_spring.ChatBot.ChatBot;
-
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.stereotype.Controller;
-
+import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 
 
-@Controller
+@RestController
 public class ChatBotController {
     
     private final ChatBot ChatBot;
