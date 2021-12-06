@@ -12,7 +12,7 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/hello")
-@CrossOrigin(origins = {"http://localhost:81", "https://posungkim.github.io", "http://ip-172-31-1-81.ap-northeast-2.compute.internal"}, allowedHeaders = "*", maxAge = 3600)
+@CrossOrigin(origins = {"http://localhost:81", "https://posungkim.github.io", "172.31.1.81"}, allowedHeaders = "*", maxAge = 3600)
 public class HelloController {
 
     private final RestService RestService;
