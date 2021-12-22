@@ -2,6 +2,9 @@ package com.fintech.chatbot_spring.Controller;
 
 import com.fintech.chatbot_spring.Service.RestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +21,12 @@ public class HelloController {
     private final RestService RestService;
 
     @Autowired
+    Environment env;
+
+    @Value("${spring.application.name}")
+    String projectName;
+
+    @Autowired
     public HelloController(RestService RestService) {
         this.RestService = RestService;
     }
@@ -28,5 +37,10 @@ public class HelloController {
         item.put("data", "안녕하세요! 반갑습니다! ");
         item.put("fromWC", RestService.deleteBlockMsg());
         return item;
+    }
+
+    @GetMapping("/application.yml")
+    public @ResponseBody String testApplicationYml() {
+        return String.format("This is Property Environment of your project %s \n [%s] \n", projectName, env);
     }
 }

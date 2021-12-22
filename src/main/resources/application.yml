@@ -5,7 +5,8 @@ server:
 spring:
   application :
     name : chatbot_spring
-  #H2 (testdb, sa) jdbcTemplate과 함께 쓰면 유용!
+
+#H2 (testdb, sa) jdbcTemplate과 함께 쓰면 유용!
   h2:
     console:
       enabled: true
