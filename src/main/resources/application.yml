@@ -12,12 +12,12 @@ spring:
       enabled: true
   kafka:
       consumer :
-        bootstrap-servers: ec2-13-209-19-186.ap-northeast-2.compute.amazonaws.com:9092
+        bootstrap-servers: ec2-15-164-95-216.ap-northeast-2.compute.amazonaws.com:9092
         group-id: chatbotGroup
         key-serializer: org.apache.kafka.common.serialization.StringSerializer
         value-serializer: org.apache.kafka.common.serialization.StringSerializer
       producer:
-        bootstrap-servers: ec2-13-209-19-186.ap-northeast-2.compute.amazonaws.com:9092
+        bootstrap-servers: ec2-15-164-95-216.ap-northeast-2.compute.amazonaws.com:9092
         key-serializer: org.apache.kafka.common.serialization.StringSerializer
         value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
