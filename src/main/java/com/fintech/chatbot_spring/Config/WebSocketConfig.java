@@ -13,13 +13,13 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/websocketConnection")
-                .setAllowedOrigins("http://localhost:81", "https://posungkim.github.io", "http://172.31.1.81")
+                .setAllowedOrigins("http://localhost:81", "https://posungkim.github.io", "http://ec2-3-35-173-205.ap-northeast-2.compute.amazonaws.com")
                 .withSockJS();
     }
+
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
         registry.setApplicationDestinationPrefixes("/");        // /으로 시작하는 요청은 ChatBotController를 통한다
         registry.enableSimpleBroker("/chatroom","/queue");         // in-memory broker
-        
     }
 }
