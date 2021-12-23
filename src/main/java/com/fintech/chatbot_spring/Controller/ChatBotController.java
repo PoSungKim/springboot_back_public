@@ -39,7 +39,7 @@ public class ChatBotController {
             Message.put("content", "다시 한번 보내주세요 ✨");
         }
         try {
-            KafkaProducerService.sendMessage(Message.toString());
+            //KafkaProducerService.sendMessage(Message.toString());
         } catch (Exception e) {
             System.out.println(e);
         }
