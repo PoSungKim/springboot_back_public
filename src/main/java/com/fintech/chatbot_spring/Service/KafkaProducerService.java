@@ -14,7 +14,7 @@ public class KafkaProducerService {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    public void sendMessage(String message) {
+    public void sendMessage(String message) throws Exception {
         System.out.println(String.format("Produce message : %s\n", message));
         this.kafkaTemplate.send(TOPIC, message);
     }

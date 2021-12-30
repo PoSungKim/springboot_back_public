@@ -15,7 +15,7 @@ public class ChatBotController {
     
     private final ChatBot ChatBot;
     private final KafkaProducerService KafkaProducerService;
-    
+
     @Autowired 
     public ChatBotController(ChatBot ChatBot, KafkaProducerService KafkaProducerService) {
         this.ChatBot = ChatBot;

@@ -6,10 +6,20 @@ spring:
   application :
     name : chatbot_spring
 
-#H2 (testdb, sa) jdbcTemplate과 함께 쓰면 유용!
+  #H2 (testdb, sa) jdbcTemplate과 함께 쓰면 유용!
   h2:
     console:
       enabled: true
+
+  jpa:
+    show-sql: true
+    hibernate.ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+#        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
+
   kafka:
       consumer :
         bootstrap-servers: ec2-15-164-95-216.ap-northeast-2.compute.amazonaws.com:9092
