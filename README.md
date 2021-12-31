@@ -11,7 +11,6 @@
 <br>
 
 ### [Terminal]
-
 ```bash
 gradle bootRun # port: 8080
 gradle build   >> jar
@@ -29,11 +28,15 @@ java -jar jarFileName
 
 ### [구성도]
 * Spring Boot
-* Spring Webclient
-* Spring Web MVC
-* Spring Flux
+* Spring Boot WebSocket
+* Spring Boot Web MVC
+* Spring Boot WebFlux
 * Spring Boot JPA
   * Hibernate, JPA, LomBok
+* H2
+* MySQL Driver
+  * AWS RDS
+* Spring Kafka
 * JUnit
 
 <br>
