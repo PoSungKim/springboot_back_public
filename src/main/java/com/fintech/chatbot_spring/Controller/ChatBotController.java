@@ -1,20 +1,26 @@
 package com.fintech.chatbot_spring.Controller;
 
-import com.fintech.chatbot_spring.Service.KafkaProducerService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.fintech.chatbot_spring.Service.KafkaProducerService;
 import com.fintech.chatbot_spring.ChatBot.ChatBot;
 
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 
 
 @RestController
 public class ChatBotController {
-    
+
+    private static final Logger logger = LoggerFactory.getLogger(ChatBotController.class);
+
     private final ChatBot ChatBot;
     private final KafkaProducerService KafkaProducerService;
+
 
     @Autowired 
     public ChatBotController(ChatBot ChatBot, KafkaProducerService KafkaProducerService) {
@@ -26,8 +32,10 @@ public class ChatBotController {
     @SendTo("/chatroom/public")
     public HashMap<String, String> addNewUser(HashMap<String, String> Message) {
         Message.put("content", ChatBot.sayHello());
-        Message.put("userName", String.format("손님%d\n", ChatBot.getUserNum()));
+        Message.put("userName", String.format("손님%d", ChatBot.getUserNum()));
         Message.put("meta-info", "ChatBot");
+
+        logger.info(String.format("새로운 손님이 입장하셨습니다 : (%s)", Message));
         return Message;
     }
 
