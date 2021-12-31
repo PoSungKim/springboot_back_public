@@ -3,6 +3,8 @@ server:
   port: 8080
 
 spring:
+  profiles:
+    active : local
   application :
     name : chatbot_spring
 
@@ -17,7 +19,7 @@ spring:
     properties:
       hibernate:
         format_sql: true
-#        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        dialect: org.hibernate.dialect.MariaDBDialect
 
 
   kafka:
@@ -36,3 +38,15 @@ spring:
   #   url: jdbc:mysql://mariadbportfolio.cua32mtg2la4.ap-northeast-2.rds.amazonaws.com:3306/portfolio?allowPublicKeyRetrieval=true&useSSL=false
   #   username: admin
   #   password: rootroot
+
+--- #local 환경 구분자
+spring:
+  profiles: local
+
+--- #dev 환경 구분자
+spring:
+  profiles: dev
+
+--- #prod 환경 구분자
+spring:
+  profiles: prod

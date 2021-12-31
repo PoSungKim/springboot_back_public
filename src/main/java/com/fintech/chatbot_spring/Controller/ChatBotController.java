@@ -34,13 +34,17 @@ public class ChatBotController {
         Message.put("userName", String.format("손님%d", ChatBot.getUserNum()));
         Message.put("meta-info", "ChatBot");
 
-        logger.info(String.format("새로운 손님이 입장하셨습니다 : (%s)", Message));
+        logger.info(String.format("새로운 손님이 입장하셨습니다 : (%s)", Message.get("userName")));
+
         return Message;
     }
 
     @MessageMapping("/chatbot.sendMessage")
     @SendTo("/chatroom/public")
     public HashMap<String, String> sendMessage(HashMap<String, String> Message) {
+
+        logger.info(String.format("손님 대화가 입력되었습니다 : (%s)", Message.get("userName")));
+
         if (Message.get("userName").equals("")) {
             Message.put("userName", "SOL");
             Message.put("content", "다시 한번 보내주세요 ✨");
