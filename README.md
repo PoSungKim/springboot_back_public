@@ -32,7 +32,8 @@ java -jar jarFileName
 * Spring Webclient
 * Spring Web MVC
 * Spring Flux
-* Spring Boot JPA (Hibernate, JPA, LomBok)
+* Spring Boot JPA
+  * Hibernate, JPA, LomBok
 * JUnit
 
 <br>
