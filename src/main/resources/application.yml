@@ -3,15 +3,9 @@ server:
   port: 8080
 
 spring:
-  profiles:
-    active : local
+  profiles.active: local
   application :
     name : chatbot_spring
-
-  #H2 (testdb, sa) jdbcTemplate과 함께 쓰면 유용!
-  h2:
-    console:
-      enabled: true
 
   jpa:
     show-sql: true
@@ -19,8 +13,7 @@ spring:
     properties:
       hibernate:
         format_sql: true
-        dialect: org.hibernate.dialect.MariaDBDialect
-
+        #dialect: org.hibernate.dialect.MariaDBDialect
 
   kafka:
       consumer :
@@ -41,12 +34,22 @@ spring:
 
 --- #local 환경 구분자
 spring:
-  profiles: local
+  config:
+    activate:
+      on-profile: local
+  #H2 (testdb, sa) jdbcTemplate과 함께 쓰면 유용!
+  h2:
+    console:
+      enabled: true
 
 --- #dev 환경 구분자
 spring:
-  profiles: dev
+  config:
+    activate:
+      on-profile: dev
 
 --- #prod 환경 구분자
 spring:
-  profiles: prod
+  config:
+    activate:
+      on-profile: prod
