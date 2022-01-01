@@ -18,7 +18,6 @@ public class Message {
     @Column
     private String content;
 
-
     @Builder
     public Message(Long id, String content) {
         this.id = id;
