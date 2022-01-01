@@ -1,6 +1,6 @@
 # Heroku
 > https://chatbot-spring.herokuapp.com/
-* G
+* Github Page Frontend <-> Heroku Backend <-> AWS RDS, Kafka <-> Spark <-> HDFS
 
 <hr>
 <br>
@@ -36,6 +36,7 @@ java -jar jarFileName
 * H2
 * MySQL Driver
   * AWS RDS
+* Swagger
 * Spring Kafka
 * JUnit
 
