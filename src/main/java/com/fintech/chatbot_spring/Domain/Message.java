@@ -3,11 +3,14 @@ package com.fintech.chatbot_spring.Domain;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
+@ToString
 @NoArgsConstructor
 public class Message {
 
@@ -17,6 +20,10 @@ public class Message {
 
     @Column
     private String content;
+
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
 
     @Builder
     public Message(Long id, String content) {

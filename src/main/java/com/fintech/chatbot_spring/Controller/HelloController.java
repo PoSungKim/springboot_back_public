@@ -42,13 +42,13 @@ public class HelloController {
 
     @ApiOperation(value="application.yml 테스트 용도 메소드")
     @GetMapping("/application.yml")
-    public @ResponseBody String testApplicationYml() {
+    public @ResponseBody String applicationYml() {
         return String.format("This is Property Environment of your project %s \n [%s] \n", projectName, env);
     }
 
     @ApiOperation(value="덧셈을 수행하는 메소드")
     @GetMapping("/sum/{first}")
-    public int testSwaggerGet(
+    public int sum(
             @ApiParam(value = "첫 번째 값", defaultValue = "20") @PathVariable int first,
             @ApiParam(value = "두 번째 값", defaultValue = "5") @RequestParam int second) {
         return first + second;
@@ -56,7 +56,7 @@ public class HelloController {
 
     @ApiOperation(value="돌어온 Json 파일을 그대로 리턴하는 메소드")
     @PostMapping("/echo")
-    public Map<String, String> testSwaggerPost(@RequestBody Map<String, String> RequestBody) {
+    public Map<String, String> echo(@RequestBody Map<String, String> RequestBody) {
         return new HashMap<>(RequestBody);
     }
 }
