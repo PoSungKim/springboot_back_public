@@ -11,8 +11,8 @@ public class RestService {
 
     private WebClient WC;
 
-    public RestService() {
-        WC = WebClient.create("http://localhost:8081");
+    public RestService(WebClient.Builder webClientBuilder) {
+        WC = webClientBuilder.baseUrl("http://localhost:8081").build();
     }
 
     public HashMap getBlockMsg() {
