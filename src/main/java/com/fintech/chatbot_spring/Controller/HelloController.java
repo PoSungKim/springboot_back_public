@@ -46,7 +46,7 @@ public class HelloController {
     @ApiOperation(value="WebFlux 테스트 용도 메소드")
     @GetMapping("")
     public @ResponseBody HashMap<String, Object>  hello() {
-        HashMap<String, Object> item = new HashMap<String, Object>();
+        HashMap<String, Object> item = new HashMap<>();
         item.put("data", "안녕하세요! 반갑습니다! ");
         item.put("fromWC", restService.deleteBlockMsg());
         return item;
