@@ -13,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.net.URI;
 import java.util.Base64;
 
 @SpringBootTest(webEnvironment =  SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -26,13 +25,15 @@ public class BasicAuthenticationTest {
 
     RestTemplate restTemplate = new RestTemplate();
 
-    private URI getLoginUrl() {
+    private String getLoginUrl() {
         return UriComponentsBuilder
                 .fromUriString("http://localhost:" + port)
                 .path("/logintest")
                 .encode()
                 .build()
-                .toUri();
+                .toUri()
+                .toString()
+                ;
     }
 
     @DisplayName("1. 실패 케이스 - Header에 Base64 Encoding 값 미포함")
@@ -42,9 +43,9 @@ public class BasicAuthenticationTest {
         logger.warn(response);
     }
 
-    @DisplayName("2. 성공 케이 스 - Header에 Base64 Encoding 값 포함")
+    @DisplayName("2. GET 방식 성공 케이스 - Header에 Base64 Encoding 값 포함")
     @Test
-    void successCase() {
+    void successGetCase() {
 
         HttpHeaders headers = new HttpHeaders();
         headers.add(HttpHeaders.AUTHORIZATION, "Basic " + Base64.getEncoder().encodeToString(
@@ -53,6 +54,20 @@ public class BasicAuthenticationTest {
 
         HttpEntity<String> entity = new HttpEntity<String>(null, headers);
         ResponseEntity<String> response = restTemplate.exchange(getLoginUrl(), HttpMethod.GET, entity, String.class);
+        logger.warn(response.getBody());
+    }
+
+    @DisplayName("3. POST 방식 성공 케이스 - Header에 Base64 Encoding 값 포함")
+    @Test
+    void successPostCase() {
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add(HttpHeaders.AUTHORIZATION, "Basic " + Base64.getEncoder().encodeToString(
+                "user:user".getBytes()
+        ));
+
+        HttpEntity<String> entity = new HttpEntity<String>("REQUEST", headers);
+        ResponseEntity<String> response = restTemplate.exchange(getLoginUrl(), HttpMethod.POST, entity, String.class);
         logger.warn(response.getBody());
     }
 
