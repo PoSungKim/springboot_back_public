@@ -1,7 +1,9 @@
 package com.fintech.chatbot_spring.Config;
 
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
@@ -9,6 +11,27 @@ import org.springframework.security.core.userdetails.User;
 @EnableWebSecurity(debug = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+                .authorizeRequests()
+                .antMatchers("/").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                ;
+    }
+
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring()
+                .requestMatchers(
+                        PathRequest.toStaticResources().atCommonLocations()
+                )
+        ;
+    }
+
+    @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
                 .withUser(
@@ -22,12 +45,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                                 .password("admin")
                                 .roles("ADMIN")
                 );
-    }
-
-    protected void config(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                                .antMatchers("/").permitAll()
-                                .anyRequest().authenticated();
-        http.formLogin();
     }
 }
