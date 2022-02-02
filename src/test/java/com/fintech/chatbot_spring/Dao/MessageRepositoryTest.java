@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 public class MessageRepositoryTest {
 
-    private static final Logger logger = LoggerFactory.getLogger(ChatBotController.class);
+    private static final Logger logger = LoggerFactory.getLogger(MessageRepositoryTest.class);
 
     @Autowired
     MessageRepository messageRepository;

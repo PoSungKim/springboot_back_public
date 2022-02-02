@@ -16,7 +16,7 @@ public class UserTest {
         System.out.println(user);
 
         // @AllArgsConstructor
-        User user2 = new User("AllArgsConstructor", "test@test.com", LocalDateTime.now(), LocalDateTime.now());
+        User user2 = new User(1L, "AllArgsConstructor", "test@test.com", LocalDateTime.now(), LocalDateTime.now());
         System.out.println(user2);
 
         // @RequiredArgsConstructor
@@ -30,6 +30,4 @@ public class UserTest {
                 .build();
         System.out.println(user4);
     }
-
-
 }

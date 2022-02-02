@@ -16,7 +16,7 @@ spring:
     properties:
       hibernate:
         format_sql: true
-        #dialect: org.hibernate.dialect.MariaDBDialect
+#        dialect: org.hibernate.dialect.MariaDBDialect
 
   kafka:
       consumer :
@@ -44,6 +44,11 @@ spring:
   h2:
     console:
       enabled: true
+  datasource :
+    url : jdbc:h2:mem:testdb
+    driverClassName : org.h2.Driver
+    username : sa
+    password :
 
 --- #dev 환경 구분자
 spring:
