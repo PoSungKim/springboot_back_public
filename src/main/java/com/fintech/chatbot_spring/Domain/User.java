@@ -1,6 +1,5 @@
 package com.fintech.chatbot_spring.Domain;
 import lombok.*;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -17,7 +16,7 @@ public class User {
 
     @Id
     @Column
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @NonNull
