@@ -12,11 +12,12 @@ spring:
 
   jpa:
     show-sql: true
-    hibernate.ddl-auto: create
+    hibernate:
+      ddl-auto: create
     properties:
       hibernate:
         format_sql: true
-#        dialect: org.hibernate.dialect.MariaDBDialect
+    database-platform: org.hibernate.dialect.H2Dialect
 
   kafka:
       consumer :
@@ -49,6 +50,7 @@ spring:
     driverClassName : org.h2.Driver
     username : sa
     password :
+
 
 --- #dev 환경 구분자
 spring:
