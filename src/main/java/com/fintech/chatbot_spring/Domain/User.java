@@ -14,17 +14,18 @@ import java.util.List;
 @Builder
 @Entity
 public class User {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
     @NonNull
+    @Column
     private String name;
 
-    @Column
     @NonNull
+    @Column
     private String email;
 
     @Column
