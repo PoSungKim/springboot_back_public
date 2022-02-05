@@ -2,6 +2,7 @@ package com.fintech.chatbot_spring.Domain;
 
 import org.junit.jupiter.api.Test;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class UserTest {
 
@@ -16,7 +17,13 @@ public class UserTest {
         System.out.println(user);
 
         // @AllArgsConstructor
-        User user2 = new User(1L, "AllArgsConstructor", "test@test.com", LocalDateTime.now(), LocalDateTime.now());
+        User user2 = new User(1L,
+                "AllArgsConstructor",
+                "test@test.com",
+                LocalDateTime.now(),
+                LocalDateTime.now(),
+                new ArrayList<Message>());
+
         System.out.println(user2);
 
         // @RequiredArgsConstructor
