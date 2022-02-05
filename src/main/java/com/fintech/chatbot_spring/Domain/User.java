@@ -1,9 +1,11 @@
 package com.fintech.chatbot_spring.Domain;
 import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Getter
 @Setter
@@ -14,8 +16,9 @@ import java.util.List;
 @Builder
 @Entity
 public class User {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Column
     private Long id;
 
@@ -32,9 +35,5 @@ public class User {
 
     @Column
     private LocalDateTime updatedAt;
-
-    @Column
-    @OneToMany(fetch = FetchType.EAGER)
-    private List<Message> messages;
 }
 
