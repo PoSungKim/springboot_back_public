@@ -18,8 +18,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
 //                .antMatchers("/", "/swagger*/**").authenticated()
 //                .anyRequest().permitAll()
-
-//                .antMatchers("/").permitAll()
+                .antMatchers("/", "swagger*/**").permitAll()
                 .anyRequest().authenticated()
 //                .and()
 //                .formLogin()
@@ -28,14 +27,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         ;
     }
 
-//    @Override
-//    public void configure(WebSecurity web) throws Exception {
-//        web.ignoring()
-//                .requestMatchers(
-//                        PathRequest.toStaticResources().atCommonLocations()
-//                )
-//        ;
-//    }
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring()
+                .requestMatchers(
+                        PathRequest.toStaticResources().atCommonLocations()
+                )
+        ;
+    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
