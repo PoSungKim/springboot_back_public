@@ -28,22 +28,22 @@ public class UserRepositoryTest {
         userRepository.save(User.builder()
                 .name("Josh")
                 .email("Josh@test.com")
-                .createdAt(LocalDateTime.now())
-                .updatedAt(LocalDateTime.now())
+//                .createdAt(LocalDateTime.now())
+//                .updatedAt(LocalDateTime.now())
                 .build());
 
         User user1 = User.builder()
                 .name("Brian")
                 .email("Brian@test.com")
-                .createdAt(LocalDateTime.now())
-                .updatedAt(LocalDateTime.now())
+//                .createdAt(LocalDateTime.now())
+//                .updatedAt(LocalDateTime.now())
                 .build();
 
         User user2 = User.builder()
                 .name("Tommy")
                 .email("Tommy@test.com")
-                .createdAt(LocalDateTime.now())
-                .updatedAt(LocalDateTime.now())
+//                .createdAt(LocalDateTime.now())
+//                .updatedAt(LocalDateTime.now())
                 .build();
 
         userRepository.saveAll(Arrays.asList(user1, user2));
@@ -123,8 +123,8 @@ public class UserRepositoryTest {
                 User.builder()
                 .name("users")
                 .email("users@test.com")
-                .createdAt(LocalDateTime.now())
-                .updatedAt(LocalDateTime.now())
+//                .createdAt(LocalDateTime.now())
+//                .updatedAt(LocalDateTime.now())
                 .build()
         , matcher);
 

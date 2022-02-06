@@ -7,13 +7,14 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 @Builder
-@ToString
 @NoArgsConstructor
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Entity
-public class UserMeta {
+public class UserMeta extends BaseDomain{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +28,7 @@ public class UserMeta {
     @Column
     private LocalDateTime lastAccessDate;
 
-    @OneToOne(optional = false)
+    @OneToOne
     @ToString.Exclude
     private User user;
 }

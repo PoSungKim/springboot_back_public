@@ -20,9 +20,9 @@ public class UserTest {
         User user2 = new User(1L,
                 "AllArgsConstructor",
                 "test@test.com",
-                LocalDateTime.now(),
-                LocalDateTime.now(),
                 new ArrayList<Message>(),
+//                LocalDateTime.now(),
+//                LocalDateTime.now(),
                 null);
 
         System.out.println(user2);

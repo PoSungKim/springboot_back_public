@@ -1,32 +1,28 @@
 package com.fintech.chatbot_spring.Domain;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
+import lombok.*;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
 @Getter
-@ToString
+@Setter
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+@Builder
+@Entity
 @NoArgsConstructor
-public class Message {
+@AllArgsConstructor
+@RequiredArgsConstructor
+public class Message extends BaseDomain{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NonNull
     @Column
     private String content;
-
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
-
-    @Builder
-    public Message(Long id, String content) {
-        this.id = id;
-        this.content = content;
-    }
 }
+
+
+
