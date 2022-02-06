@@ -1,4 +1,5 @@
 package com.fintech.chatbot_spring.Domain;
+import com.sun.istack.NotNull;
 import lombok.*;
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -6,11 +7,11 @@ import java.util.List;
 
 @Getter
 @Setter
+@Builder
 @ToString
 @NoArgsConstructor
-@AllArgsConstructor
 @RequiredArgsConstructor
-@Builder
+@AllArgsConstructor
 @Entity
 public class User {
 
@@ -20,11 +21,13 @@ public class User {
     private Long id;
 
     @NonNull
-    @Column
+    @NotNull
+    @Column(nullable = false)
     private String name;
 
     @NonNull
-    @Column
+    @NotNull
+    @Column(nullable = false)
     private String email;
 
     @Column
@@ -36,5 +39,8 @@ public class User {
     @Column
     @OneToMany(fetch = FetchType.EAGER)
     private List<Message> messages;
-}
 
+    @OneToOne
+    @ToString.Exclude
+    private UserMeta userMeta;
+}

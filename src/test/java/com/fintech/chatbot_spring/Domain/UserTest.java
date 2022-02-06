@@ -22,7 +22,8 @@ public class UserTest {
                 "test@test.com",
                 LocalDateTime.now(),
                 LocalDateTime.now(),
-                new ArrayList<Message>());
+                new ArrayList<Message>(),
+                null);
 
         System.out.println(user2);
 
