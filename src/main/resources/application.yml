@@ -17,7 +17,7 @@ spring:
     properties:
       hibernate:
         format_sql: true
-    # database-platform: org.hibernate.dialect.H2Dialect
+    database-platform: org.hibernate.dialect.H2Dialect
     # Spring 2.5부터 data.sql script 실행 이후에 hibernate 실행
     # 따라서, hibernate을 먼저 실행하도록 data.sql 실행을 defer 필요 (공식 문서 가이드 내용)
     defer-datasource-initialization: true
