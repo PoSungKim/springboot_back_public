@@ -3,6 +3,7 @@ import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -31,9 +32,10 @@ public class User extends BaseDomain{
     @Column(nullable = false)
     private String email;
 
-    @Column
     @OneToMany(fetch = FetchType.EAGER)
-    private List<Message> messages;
+    @JoinColumn(name = "user_id")
+    @ToString.Exclude
+    private List<Message> messages = new ArrayList<>();
 
     @OneToOne(mappedBy = "user")
     @ToString.Exclude

@@ -32,6 +32,7 @@ class UserMetaRepositoryTest {
         userMeta.setAccessCount(1);
         userMeta.setLastAccessDate(LocalDateTime.now());
         userMeta.setUser(user);
+
         userMetaRepository.save(userMeta);
 
         userMeta = userMetaRepository.findById(1L).orElseThrow(RuntimeException::new);

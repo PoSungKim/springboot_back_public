@@ -1,5 +1,6 @@
 package com.fintech.chatbot_spring.Dao;
 
+import com.fintech.chatbot_spring.Domain.Message;
 import com.fintech.chatbot_spring.Domain.User;
 import org.junit.jupiter.api.*;
 import org.slf4j.Logger;

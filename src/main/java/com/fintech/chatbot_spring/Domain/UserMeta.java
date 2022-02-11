@@ -28,7 +28,7 @@ public class UserMeta extends BaseDomain{
     @Column
     private LocalDateTime lastAccessDate;
 
-    @OneToOne
+    @OneToOne(optional = false)
     @ToString.Exclude
     private User user;
 }

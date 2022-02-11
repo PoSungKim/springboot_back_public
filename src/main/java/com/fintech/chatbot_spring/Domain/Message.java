@@ -1,8 +1,9 @@
 package com.fintech.chatbot_spring.Domain;
 
 import lombok.*;
+
 import javax.persistence.*;
-import java.time.LocalDateTime;
+
 
 @Getter
 @Setter
@@ -22,7 +23,12 @@ public class Message extends BaseDomain{
     @NonNull
     @Column
     private String content;
-}
 
+    @NonNull
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @ToString.Exclude
+    private User user;
+}
 
 

@@ -33,4 +33,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findAllByOrderByIdDescNameAsc();
     List<User> findTop10ByNameLike(String name, Sort sort);
     Page<User> findByNameLike(String name, Pageable pageable);
+
+    User findByEmail(String email);
 }
