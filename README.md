@@ -30,11 +30,11 @@ java -jar jarFileName
 
 ### [구성도]
 * Spring Boot
-* Spring Boot WebSocket
-* Spring Boot Web MVC
-* Spring Boot WebFlux
-* Spring Boot JPA
-  * Hibernate, JPA, LomBok
+  * Spring Boot WebSocket
+  * Spring Boot Web MVC
+  * Spring Boot WebFlux
+  * Spring Boot JPA
+    * Hibernate, JPA, LomBok
 * H2
 * MySQL Driver
   * AWS RDS
