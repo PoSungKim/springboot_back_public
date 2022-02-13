@@ -43,6 +43,8 @@ java -jar jarFileName
 * JUnit
 
 <br>
+<hr>
+<br>
 
 ## User 정보
 #### 모두에게 오픈되어 있는 서비스로 로그인은 절차상 생성
