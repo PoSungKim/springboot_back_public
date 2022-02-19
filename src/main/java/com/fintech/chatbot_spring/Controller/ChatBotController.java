@@ -1,5 +1,6 @@
 package com.fintech.chatbot_spring.Controller;
 
+import com.fintech.chatbot_spring.Service.ChatbotService;
 import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,11 +22,13 @@ public class ChatBotController {
 
     private final ChatBot ChatBot;
     private final KafkaProducerService KafkaProducerService;
+    private final ChatbotService chatbotService;
 
     @Autowired 
-    public ChatBotController(ChatBot ChatBot, KafkaProducerService KafkaProducerService) {
+    public ChatBotController(ChatBot ChatBot, KafkaProducerService KafkaProducerService, ChatbotService chatbotService) {
         this.ChatBot = ChatBot;
         this.KafkaProducerService = KafkaProducerService;
+        this.chatbotService = chatbotService;
     }
 
     @MessageMapping("/chatbot.join")
@@ -42,21 +45,27 @@ public class ChatBotController {
 
     @MessageMapping("/chatbot.sendMessage")
     @SendTo("/chatroom/public")
-    public HashMap<String, String> sendMessage(HashMap<String, String> Message) {
+    public HashMap<String, String> sendMessage(HashMap<String, String> message) {
 
-        logger.info(String.format("손님 대화가 입력되었습니다 : (%s)", Message.get("userName")));
+        logger.info(String.format("%s 대화가 입력되었습니다 : %s", message.get("userName"), message.get("content")));
 
-        if (Message.get("userName").equals("")) {
-            Message.put("userName", "SOL");
-            Message.put("content", "다시 한번 보내주세요 ✨");
+        if (message.get("userName").equals("")) {
+            message.put("userName", "SOL");
+            message.put("content", "다시 한번 보내주세요 ✨");
+        }
+
+        try {
+            chatbotService.saveMessage(message);
+        } catch(Exception e) {
+            logger.info(""+e);
         }
 
         try {
             //KafkaProducerService.sendMessage(Message.toString());
         } catch (Exception e) {
-            System.out.println(e);
+            logger.info(""+e);
         }
         
-        return Message;
+        return message;
     }
 } 
