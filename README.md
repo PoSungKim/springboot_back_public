@@ -30,11 +30,11 @@ java -jar jarFileName
 
 ### [구성도]
 * Spring Boot
-* Spring Boot WebSocket
-* Spring Boot Web MVC
-* Spring Boot WebFlux
-* Spring Boot JPA
-  * Hibernate, JPA, LomBok
+  * Spring Boot WebSocket
+  * Spring Boot Web MVC
+  * Spring Boot WebFlux
+  * Spring Boot JPA
+    * Hibernate, JPA, LomBok
 * H2
 * MySQL Driver
   * AWS RDS
@@ -43,5 +43,14 @@ java -jar jarFileName
 * JUnit
 
 <br>
+<hr>
+<br>
 
+## User 정보
+#### 모두에게 오픈되어 있는 서비스로 로그인은 절차상 생성
 
+<br>
+
+### [Login Info]
+* admin:admin
+* user:user
