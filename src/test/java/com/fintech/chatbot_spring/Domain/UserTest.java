@@ -18,12 +18,15 @@ public class UserTest {
 
         // @AllArgsConstructor
         User user2 = new User(1L,
-                "AllArgsConstructor",
-                "test@test.com",
-                new ArrayList<Message>(),
-//                LocalDateTime.now(),
-//                LocalDateTime.now(),
-                null);
+                        "AllArgsConstructor",
+                        "test@test.com",
+                        new ArrayList<Message>(),
+                null,
+                new ArrayList<UserAndUser>(),
+                new ArrayList<UserAndUser>()
+        //                LocalDateTime.now(),
+        //                LocalDateTime.now(),
+        );
 
         System.out.println(user2);
 

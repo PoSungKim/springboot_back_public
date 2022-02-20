@@ -32,7 +32,7 @@ public class User extends BaseDomain{
     @Column(nullable = false)
     private String email;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany
     @JoinColumn(name = "user_id")
     @ToString.Exclude
     private List<Message> messages = new ArrayList<>();
@@ -40,4 +40,14 @@ public class User extends BaseDomain{
     @OneToOne(mappedBy = "user")
     @ToString.Exclude
     private UserMeta userMeta;
+
+    @OneToMany
+    @JoinColumn(name="from_user_id")
+    @ToString.Exclude
+    private List<UserAndUser> fromUsers = new ArrayList<>();
+
+    @OneToMany
+    @JoinColumn(name="to_user_id")
+    @ToString.Exclude
+    private List<UserAndUser> toUsers = new ArrayList<>();
 }
