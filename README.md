@@ -36,21 +36,24 @@ java -jar jarFileName
   * Spring Boot JPA
     * Hibernate, JPA, LomBok
 * H2
+  * `/h2-console`
 * MySQL Driver
   * AWS RDS
 * Swagger
-* Spring Kafka
-* JUnit
+  * `/swagger-ui/` 
+* Spring 
+  * Kafka
+* JUnit5
 
 <br>
 <hr>
 <br>
 
-## User 정보
+## Authorization 정보
 #### 모두에게 오픈되어 있는 서비스로 로그인은 절차상 생성
 
 <br>
 
-### [Login Info]
+### [Authorization Info]
 * admin:admin
 * user:user
