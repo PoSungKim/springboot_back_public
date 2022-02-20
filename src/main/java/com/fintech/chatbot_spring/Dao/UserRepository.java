@@ -1,5 +1,6 @@
 package com.fintech.chatbot_spring.Dao;
 
+import com.fintech.chatbot_spring.DTO.UserInfo;
 import com.fintech.chatbot_spring.Domain.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
