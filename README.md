@@ -16,7 +16,7 @@
 ```bash
 gradle bootRun # port: 8080
 gradle build   >> jar
-java -jar jarFileName 
+java -jar -Dspring.active.profile=local jarFileName 
 ```
 
 <br>
