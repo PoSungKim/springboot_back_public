@@ -40,6 +40,8 @@ class UserAndUserRepositoryTest {
         User user2 = userRepository.findById(2L).orElseThrow(RuntimeException::new);
         createMessage();
 
+        messageRepository.flush();
+
         Message message = messageRepository.getById(1L);
 
         UserAndUser userAndUser = new UserAndUser();
