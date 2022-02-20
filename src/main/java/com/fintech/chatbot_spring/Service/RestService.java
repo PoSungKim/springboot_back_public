@@ -1,5 +1,6 @@
 package com.fintech.chatbot_spring.Service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -9,8 +10,9 @@ import java.util.HashMap;
 @Service
 public class RestService {
 
-    private WebClient WC;
+    private final WebClient WC;
 
+    @Autowired
     public RestService(WebClient.Builder webClientBuilder) {
         WC = webClientBuilder.baseUrl("http://localhost:8081").build();
     }

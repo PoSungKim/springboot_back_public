@@ -1,11 +1,12 @@
 package com.fintech.chatbot_spring.Controller;
 
+import com.fintech.chatbot_spring.Domain.User;
 import com.fintech.chatbot_spring.Service.ChatbotService;
+import com.fintech.chatbot_spring.Service.UserService;
 import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fintech.chatbot_spring.Service.KafkaProducerService;
@@ -24,24 +25,35 @@ public class ChatBotController {
     private final ChatBot ChatBot;
     private final KafkaProducerService KafkaProducerService;
     private final ChatbotService chatbotService;
+    private final UserService userService;
 
-    @Autowired 
-    public ChatBotController(ChatBot ChatBot, KafkaProducerService KafkaProducerService, ChatbotService chatbotService) {
+    @Autowired
+    public ChatBotController(ChatBot ChatBot, KafkaProducerService KafkaProducerService, ChatbotService chatbotService, UserService userService) {
         this.ChatBot = ChatBot;
         this.KafkaProducerService = KafkaProducerService;
         this.chatbotService = chatbotService;
+        this.userService = userService;
     }
 
     @MessageMapping("/chatbot.join")
     @SendTo("/chatroom/public")
-    public HashMap<String, String> addNewUser(HashMap<String, String> Message) {
-        Message.put("content", ChatBot.sayHello());
-        Message.put("userName", String.format("손님%d", ChatBot.getUserNum()));
-        Message.put("meta-info", "ChatBot");
+    public HashMap<String, String> addNewUser(HashMap<String, String> message) {
+        message.put("content", ChatBot.sayHello());
+        message.put("userName", String.format("손님%d", ChatBot.getUserNum()));
+        message.put("meta-info", "ChatBot");
 
-        logger.info(String.format("새로운 손님이 입장하셨습니다 : (%s)", Message.get("userName")));
+        try {
+            User user = new User();
+            user.setName(message.get("userName"));
+            user.setEmail(message.get("userName") + "@test.com");
+            userService.addUser(user);
+        } catch (Exception e) {
+            logger.info(e.getMessage());
+        }
 
-        return Message;
+        logger.info(String.format("새로운 손님이 입장하셨습니다 : (%s)", message.get("userName")));
+
+        return message;
     }
 
     @MessageMapping("/chatbot.sendMessage")
