@@ -11,7 +11,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/users")
-@CrossOrigin(origins = {"http://localhost:81", "https://posungkim.github.io", "http://43.200.125.247/"}, allowedHeaders = "*", maxAge = 3600)
+@CrossOrigin(origins = {"http://localhost:81", "https://posungkim.github.io", "http://43.200.125.247"}, allowedHeaders = "*", maxAge = 3600)
 public class UserController {
 
     private final UserService userService;
