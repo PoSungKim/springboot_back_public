@@ -1,8 +1,8 @@
 package com.fintech.chatbot_spring.Controller;
 
 import com.fintech.chatbot_spring.Service.RestService;
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,13 +15,14 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.io.IOException;
 import java.net.URI;
 import java.util.*;
 
 @Api(tags = {"테스트 용도의 Controller"})
 @RestController
 @RequestMapping("/hello")
-@CrossOrigin(origins = {"http://localhost:81", "https://posungkim.github.io", "http://ec2-3-35-173-205.ap-northeast-2.compute.amazonaws.com"}, allowedHeaders = "*", maxAge = 3600)
+@CrossOrigin(origins = {"http://localhost:81", "https://posungkim.github.io", "http://43.200.125.247/"}, allowedHeaders = "*", maxAge = 3600)
 public class HelloController {
 
     private static final Logger logger = LoggerFactory.getLogger(HelloController.class);
@@ -54,7 +55,8 @@ public class HelloController {
 
     @ApiOperation(value="application.yml 테스트 용도 메소드")
     @GetMapping("/application.yml")
-    public @ResponseBody String applicationYml() {
+    public @ResponseBody String applicationYml() throws IOException {
+
         return String.format("This is Property Environment of your project %s \n [%s] \n", projectName, env);
     }
 
