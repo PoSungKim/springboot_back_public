@@ -22,7 +22,6 @@ import java.util.*;
 @Api(tags = {"테스트 용도의 Controller"})
 @RestController
 @RequestMapping("/hello")
-@CrossOrigin(origins = {"http://localhost:81", "https://posungkim.github.io", "http://43.200.125.247", "http://benebean-lightbulb.com"}, allowedHeaders = "*", maxAge = 3600)
 public class HelloController {
 
     private static final Logger logger = LoggerFactory.getLogger(HelloController.class);
